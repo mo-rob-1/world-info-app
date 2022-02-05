@@ -16,6 +16,7 @@ header {
   border: none;
   padding: 0;
   font-weight: 600;
+  cursor: pointer;
 }
 .moon-icon {
   position: relative;
