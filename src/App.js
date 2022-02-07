@@ -1,10 +1,16 @@
 import Layout from "./components/Layout";
+import { BrowserRouter as Route, Routes } from "react-router-dom";
+import Countries from "./components/Countries";
+import CountryPage from "./pages/CountryPage";
 import "./styles/App.css";
 
 function App() {
   return (
     <Layout>
-      <h1>World Info App</h1>
+      <Routes>
+        <Route path="/" element={<Countries />} />
+        <Route path="/:name" element={<CountryPage />} />
+      </Routes>
     </Layout>
   );
 }
