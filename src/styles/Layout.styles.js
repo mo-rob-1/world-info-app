@@ -156,6 +156,9 @@ template {
 figure {
     margin: 0;
 }
+img {
+    width: 100%;
+}
 [hidden] {
     display: none;
 }
