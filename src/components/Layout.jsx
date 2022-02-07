@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import { GlobalStyles, Container } from "../styles/Layout.styles";
 import { ThemeProvider } from "styled-components";
 import { lightMode, darkMode, Theme } from "../styles/Themes.styles";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function Layout({ children }) {
   const [theme, setTheme] = useState("light");
@@ -15,11 +16,13 @@ function Layout({ children }) {
   return (
     <>
       <ThemeProvider theme={theme === "light" ? lightMode : darkMode}>
-        <GlobalStyles />
-        <Theme />
-        <Header themeToggle={themeToggle} />
-        <Container>{children}</Container>
-        <Footer />
+        <Router>
+          <GlobalStyles />
+          <Theme />
+          <Header themeToggle={themeToggle} />
+          <Container>{children}</Container>
+          <Footer />
+        </Router>
       </ThemeProvider>
     </>
   );
