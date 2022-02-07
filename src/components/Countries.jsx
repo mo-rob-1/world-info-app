@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Country from "./Country";
 import { FaSearch } from "react-icons/fa";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 function Countries() {
   const [countries, setCountries] = useState([]);
@@ -29,12 +28,7 @@ function Countries() {
     const res = await fetch(`https://restcountries.com/v3.1/subregion/${region}`);
     const data = await res.json();
     setFilteredCountries(data);
-    console.log(data);
   };
-
-  useEffect(() => {
-    fetchCountryByRegion();
-  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -66,7 +60,6 @@ function Countries() {
         <FaSearch />
         <input type="text" placeholder="Search for a country..." onChange={(e) => setSearch(e.target.value)} />
       </div>
-
       <select name="select" id="select" value={region.name} onChange={(e) => fetchCountryByRegion(e.target.value)}>
         <option value="Africa">Africa</option>
         <option value="America">America</option>
