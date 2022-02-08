@@ -1,6 +1,6 @@
-import { FaRegMoon } from "react-icons/fa";
+import { BsMoonFill, BsMoon } from "react-icons/bs";
 
-function Header({ themeToggle }) {
+function Header({ themeToggle, theme }) {
   return (
     <header>
       <div className="header__container">
@@ -8,7 +8,8 @@ function Header({ themeToggle }) {
 
         <div className="header__theme-toggle-wrapper">
           <button className="header__btn" type="button" onClick={themeToggle}>
-            <FaRegMoon className="moon-icon" /> Dark Mode
+            {theme === "light" ? <BsMoon className="moon-icon" /> : <BsMoonFill className="moon-icon" />}
+            {theme === "light" ? "Dark" : "Light"} Mode
           </button>
         </div>
       </div>
