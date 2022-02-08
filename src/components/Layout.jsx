@@ -19,7 +19,7 @@ function Layout({ children }) {
         <Router>
           <GlobalStyles />
           <Theme />
-          <Header themeToggle={themeToggle} />
+          <Header themeToggle={themeToggle} theme={theme} />
           <Container>{children}</Container>
           <Footer />
         </Router>
