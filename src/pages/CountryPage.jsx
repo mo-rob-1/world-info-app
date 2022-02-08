@@ -1,37 +1,54 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { FaLongArrowAltLeft } from "react-icons/fa";
+import axios from "axios";
+import Button from "../components/Button";
 
 function CountryPage() {
   const [country, setCountry] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { name } = useParams();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`https://restcountries.com/v2/name/${name}`);
-      const country = await res.json();
-      setCountry(country);
-    };
-    fetchData();
-  }, [name]);
+    fetch(`https://restcountries.com/v3.1/name/${name}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setCountry(result);
+        console.log(result);
+        setLoading(false);
+      });
+  }, []);
+
+  // Looping through native name objects in the api
+  const loopObj = (obj) => {
+    return Object.keys(obj).map((key) => obj[key]);
+  };
+
+  // Fetch border country details
+  const getBorderCountryInfo = async (border) => {
+    const response = await fetch(`https://restcountries.com/v3.1/alpha/${border}`);
+    const data = await response.json();
+    setCountry(data);
+  };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
   return (
     <div className="CountryPage">
       {country.map((c) => {
         const {
           numericCode,
-          flag,
-          name,
+          name: { common },
+          flags: { png },
           population,
           region,
           capital,
-          nativeName,
           subregion,
-          borders,
+          tld,
           languages,
           currencies,
-          demonym,
-          topLevelDomain,
         } = c;
         return (
           <div key={numericCode}>
@@ -42,15 +59,14 @@ function CountryPage() {
             </div>
             <div className="country-pg__container">
               <div className="country-pg__col-1">
-                <img className="country-pg__img" src={flag} alt={name} />
+                <img className="country-pg__img" src={png} alt={common} />
               </div>
-
               <div className="country-pg__col-2">
-                <h1 className="country-pg__name">{name}</h1>
+                <h1 className="country-pg__name">{common}</h1>
                 <div className="country-pg__container-2">
                   <div className="country-pg__inner-col-1">
                     <p className="country-pg__native-name">
-                      <strong>Native Name:</strong> {nativeName}
+                      <strong>Native Name:</strong> {loopObj(c?.name.nativeName)[0].official}
                     </p>
                     <p className="country-pg__population">
                       <strong>Population:</strong> {population.toLocaleString("en-GB")}
@@ -64,34 +80,31 @@ function CountryPage() {
                     <p className="country-pg__capital">
                       <strong>Capital:</strong> {capital}
                     </p>
-                    <p className="country-pg__demonym">
-                      <strong>Demonym:</strong> {demonym}
-                    </p>
                   </div>
-
                   <div className="country-pg__inner-col-2">
                     <p className="country-pg__domain">
-                      <strong>Top-Level Domain:</strong> {topLevelDomain}
+                      <strong>Top-Level Domain:</strong> {tld}
                     </p>
                     <p className="country-pg__currency">
-                      <strong>Currency:</strong> {currencies[0].name}
+                      <strong>Currency:</strong> {Object.values(currencies).map((val) => val.name)}
                     </p>
                     <p className="country-pg__language">
-                      <strong>Main Language:</strong> {languages[0].name}
+                      <strong>Languages:</strong>: {Object.values(languages).join(", ")}
                     </p>
                   </div>
                 </div>
-
                 <div className="country-pg__border-countries-container">
                   <h3 className="country-pg__border-countries">Border Countries:</h3>
                   <div className="country-pg__borders">
-                    {borders?.map((border) => {
-                      return (
-                        <ul className="country-pg__border-list-container" key={border}>
-                          <li className="country-pg__border-list">{border}</li>
-                        </ul>
-                      );
-                    })}
+                    {c.borders ? (
+                      c?.borders?.map((border, index) => (
+                        <Button key={index} onClick={() => getBorderCountryInfo(border)}>
+                          {border}
+                        </Button>
+                      ))
+                    ) : (
+                      <p>None</p>
+                    )}
                   </div>
                 </div>
               </div>
