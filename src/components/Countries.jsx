@@ -9,23 +9,28 @@ function Countries() {
   const [search, setSearch] = useState("");
   const [filteredCountries, setFilteredCountries] = useState([]);
 
-  const region = [
-    {
-      name: "Africa",
-    },
-    {
-      name: "Asia",
-    },
-    {
-      name: "Americas",
-    },
-    {
-      name: "Europe",
-    },
-  ];
+  // const region = [
+  //   {
+  //     name: "Africa",
+  //   },
+  //   {
+  //     name: "Asia",
+  //   },
+  //   {
+  //     name: "Americas",
+  //   },
+  //   {
+  //     name: "Europe",
+  //   },
+  //   {
+  //     name: "Oceania",
+  //   },
+  // ];
+
+  // value={region.name}
 
   const fetchCountryByRegion = async (region) => {
-    const res = await fetch(`https://restcountries.com/v3.1/subregion/${region}`);
+    const res = await fetch(`https://restcountries.com/v3.1/region/${region}`);
     const data = await res.json();
     setFilteredCountries(data);
   };
@@ -60,16 +65,23 @@ function Countries() {
         <FaSearch />
         <input type="text" placeholder="Search for a country..." onChange={(e) => setSearch(e.target.value)} />
       </div>
-      <select name="select" id="select" value={region.name} onChange={(e) => fetchCountryByRegion(e.target.value)}>
+
+      <select name="select" id="select" onChange={(e) => fetchCountryByRegion(e.target.value)}>
+        <option className="hide-label" value="" disabled selected>
+          Filter by Region
+        </option>
         <option value="Africa">Africa</option>
         <option value="America">America</option>
         <option value="Asia">Asia</option>
         <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
       </select>
 
-      {filteredCountries.map((country, idx) => (
-        <Country key={idx} {...country} />
-      ))}
+      <section>
+        {filteredCountries.map((country, idx) => (
+          <Country key={idx} {...country} />
+        ))}
+      </section>
     </>
   );
 }
