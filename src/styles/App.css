@@ -25,6 +25,12 @@ header {
 }
 /* Header Styles End */
 
+/* Filter Styles Start */
+.hide-label {
+  display: none;
+}
+/* Filter End Start */
+
 /* Footer Styles Start */
 footer {
   padding: 1rem;
