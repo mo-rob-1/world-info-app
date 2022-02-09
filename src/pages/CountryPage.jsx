@@ -66,7 +66,7 @@ function CountryPage() {
                 <div className="country-pg__container-2">
                   <div className="country-pg__inner-col-1">
                     <p className="country-pg__native-name">
-                      <strong>Native Name:</strong> {loopObj(c?.name.nativeName)[0].official}
+                      <strong>Official Name:</strong> {loopObj(c?.name.nativeName)[0].official}
                     </p>
                     <p className="country-pg__population">
                       <strong>Population:</strong> {population.toLocaleString("en-GB")}
@@ -86,7 +86,10 @@ function CountryPage() {
                       <strong>Top-Level Domain:</strong> {tld}
                     </p>
                     <p className="country-pg__currency">
-                      <strong>Currency:</strong> {Object.values(currencies).map((val) => val.name)}
+                      <strong>Currency:</strong>{" "}
+                      {Object.values(currencies)
+                        .map((val) => val.name)
+                        .join(", ")}
                     </p>
                     <p className="country-pg__language">
                       <strong>Languages:</strong>: {Object.values(languages).join(", ")}
