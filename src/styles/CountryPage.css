@@ -1,0 +1,138 @@
+.country-pg__back-btn-container {
+  display: inline-flex;
+  margin-top: 2rem;
+  margin-bottom: 2.6rem;
+  background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 0.7rem 2rem;
+}
+
+.country-pg__back-btn {
+  color: #000;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+}
+
+.country-pg__img {
+  width: 100%;
+}
+
+.country-pg__name {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.country-pg__inner-col-2 {
+  margin-top: 2.2rem;
+  margin-bottom: 2.2rem;
+}
+
+.fa-long-arrow-alt-left {
+  color: #fff;
+  margin-right: 0.3rem;
+}
+
+.country-pg__borders {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.country-pg__borders button {
+  border: none;
+  background-color: #fff;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 0.6rem 2.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.country-pg__border-list-container {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.country-pg__border-list {
+  display: inline-block;
+  background-color: #2b3844;
+  padding: 0.4rem 2rem;
+  border-radius: 5px;
+  margin: 0.2rem;
+}
+.country-pg__border-countries-container {
+  margin-top: 3.8rem;
+}
+
+@media (min-width: 768px) {
+  .country-pg {
+    height: 100vh;
+    margin-top: 2rem;
+  }
+  .country-pg__border-countries-container {
+    margin-top: 1rem;
+  }
+  .country-pg__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 4.5rem;
+    margin-top: 3.2rem;
+    margin-bottom: 2rem;
+  }
+  .country-pg__name {
+    margin-top: 0;
+  }
+  .country-pg__col-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .country-pg__container-2 {
+    /* display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    gap: 1rem; */
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+  .country-pg__inner-col-2 {
+    margin: 0;
+  }
+  .country-pg__border-countries-container {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1440px) {
+  .country-pg__border-countries-container {
+    width: 80%;
+  }
+  .country-pg__container-2 {
+    width: 90%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .country-pg__border-countries-container {
+    width: 60%;
+  }
+  .country-pg__container-2 {
+    width: 70%;
+  }
+}
+
+@media (min-width: 2560px) {
+  .country-pg__container-2 {
+    width: 70%;
+  }
+}
