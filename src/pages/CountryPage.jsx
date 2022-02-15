@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import { FaLongArrowAltLeft } from "react-icons/fa";
+import { HiArrowNarrowLeft } from "react-icons/hi";
 import axios from "axios";
 import Button from "../components/Button";
+import "../styles/CountryPage.css";
 
 function CountryPage() {
   const [country, setCountry] = useState([]);
@@ -41,7 +42,7 @@ function CountryPage() {
         const {
           numericCode,
           name: { common },
-          flags: { png },
+          flags: { svg },
           population,
           region,
           capital,
@@ -51,15 +52,16 @@ function CountryPage() {
           currencies,
         } = c;
         return (
-          <div key={numericCode}>
-            <div className="country-pg__back-btn-container">
-              <Link className="country-pg__back-btn" to={`/`}>
-                <FaLongArrowAltLeft /> Back
-              </Link>
-            </div>
+          <div className="country-pg" key={numericCode}>
+            <Link to={`/`} className="country-pg__back-btn-container">
+              <div className="country-pg__back-btn">
+                <HiArrowNarrowLeft fontSize={20} />
+                <span>Back</span>
+              </div>
+            </Link>
             <div className="country-pg__container">
               <div className="country-pg__col-1">
-                <img className="country-pg__img" src={png} alt={common} />
+                <img className="country-pg__img" src={svg} alt={common} />
               </div>
               <div className="country-pg__col-2">
                 <h1 className="country-pg__name">{common}</h1>
@@ -92,7 +94,7 @@ function CountryPage() {
                         .join(", ")}
                     </p>
                     <p className="country-pg__language">
-                      <strong>Languages:</strong>: {Object.values(languages).join(", ")}
+                      <strong>Languages:</strong> {Object.values(languages).join(", ")}
                     </p>
                   </div>
                 </div>
