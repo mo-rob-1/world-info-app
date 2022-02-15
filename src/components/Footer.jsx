@@ -1,7 +1,9 @@
 function Footer() {
   return (
     <footer>
-      <small>Coded by Mo.</small>
+      <small>
+        Coded by <a href="https://mocodes.co.uk/">Mo.</a>
+      </small>
     </footer>
   );
 }
