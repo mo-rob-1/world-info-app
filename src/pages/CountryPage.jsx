@@ -17,7 +17,7 @@ function CountryPage() {
         console.log(result);
         setLoading(false);
       });
-  }, []);
+  }, [name]);
 
   // Looping through native name objects in the api
   const loopObj = (obj) => {
