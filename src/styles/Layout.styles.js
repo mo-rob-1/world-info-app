@@ -2,7 +2,9 @@ import styled, { createGlobalStyle } from "styled-components";
 
 export const Container = styled.main`
   font-family: "Nunito Sans", sans-serif;
-  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1300px;
+  width: 90%;
 `;
 
 export const GlobalStyles = createGlobalStyle`
@@ -73,7 +75,6 @@ img {
 button,
 input,
 optgroup,
-select,
 textarea {
     font-family: inherit;
     font-size: 100%;
