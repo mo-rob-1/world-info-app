@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { HiArrowNarrowLeft } from "react-icons/hi";
-import axios from "axios";
 import Button from "../components/Button";
 import "../styles/CountryPage.css";
 
@@ -33,14 +32,13 @@ function CountryPage() {
   };
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <h2 className="loading">Loading...</h2>;
   }
 
   return (
     <div className="CountryPage">
-      {country.map((c) => {
+      {country.map((c, index) => {
         const {
-          numericCode,
           name: { common },
           flags: { svg },
           population,
@@ -52,7 +50,7 @@ function CountryPage() {
           currencies,
         } = c;
         return (
-          <div className="country-pg" key={numericCode}>
+          <div className="country-pg" key={index}>
             <Link to={`/`} className="country-pg__back-btn-container">
               <div className="country-pg__back-btn">
                 <HiArrowNarrowLeft fontSize={20} />
@@ -99,7 +97,7 @@ function CountryPage() {
                   </div>
                 </div>
                 <div className="country-pg__border-countries-container">
-                  <h3 className="country-pg__border-countries">Border Countries:</h3>
+                  <h4 className="country-pg__border-countries">Border Countries:</h4>
                   <div className="country-pg__borders">
                     {c.borders ? (
                       c?.borders?.map((border, index) => (
@@ -108,7 +106,7 @@ function CountryPage() {
                         </Button>
                       ))
                     ) : (
-                      <p>None</p>
+                      <p className="borders-none">None</p>
                     )}
                   </div>
                 </div>
