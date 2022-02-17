@@ -6,9 +6,8 @@ This is my solution to the [REST Countries API with color theme switcher challen
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
+  - [Link](#link)
+- [Built with](#built-with)
 - [Author](#author)
 
 ## Overview
