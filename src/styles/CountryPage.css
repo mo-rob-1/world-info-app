@@ -94,9 +94,6 @@
 }
 
 @media (min-width: 1024px) {
-  .country-pg {
-    height: 100vh;
-  }
   .country-pg__container {
     gap: 5rem;
   }
