@@ -2,7 +2,7 @@ import Layout from "./components/Layout";
 import { Route, Routes } from "react-router-dom";
 import Countries from "./components/Countries";
 import CountryPage from "./pages/CountryPage";
-import "./styles/App.css";
+import "./styles/Countries.css";
 
 function App() {
   return (
