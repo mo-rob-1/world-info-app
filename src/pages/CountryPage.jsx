@@ -19,11 +19,6 @@ function CountryPage() {
       });
   }, [name]);
 
-  // Looping through native name objects in the api
-  const loopObj = (obj) => {
-    return Object.keys(obj).map((key) => obj[key]);
-  };
-
   // Fetch border country details
   const getBorderCountryInfo = async (border) => {
     const response = await fetch(`https://restcountries.com/v3.1/alpha/${border}`);
@@ -39,7 +34,7 @@ function CountryPage() {
     <div className="CountryPage">
       {country.map((c, index) => {
         const {
-          name: { common },
+          name: { common, official },
           flags: { svg },
           population,
           region,
@@ -66,7 +61,7 @@ function CountryPage() {
                 <div className="country-pg__container-2">
                   <div className="country-pg__inner-col-1">
                     <p className="country-pg__native-name">
-                      <strong>Official Name:</strong> {loopObj(c?.name.nativeName)[0].official}
+                      <strong>Official Name:</strong> {official}
                     </p>
                     <p className="country-pg__population">
                       <strong>Population:</strong> {population.toLocaleString("en-GB")}
@@ -87,12 +82,12 @@ function CountryPage() {
                     </p>
                     <p className="country-pg__currency">
                       <strong>Currency:</strong>{" "}
-                      {Object.values(currencies)
+                      {Object.values(currencies || {})
                         .map((val) => val.name)
                         .join(", ")}
                     </p>
                     <p className="country-pg__language">
-                      <strong>Languages:</strong> {Object.values(languages).join(", ")}
+                      <strong>Languages:</strong> {Object.values(languages || {}).join(", ")}
                     </p>
                   </div>
                 </div>
