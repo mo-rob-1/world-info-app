@@ -166,7 +166,7 @@ small a {
     margin-top: 1rem;
   }
   .card img {
-    height: 180px;
+    height: 200px;
   }
   .search-wrapper {
     display: flex;
@@ -185,11 +185,17 @@ small a {
   }
 }
 @media screen and (min-width: 900px) {
+  .card img {
+    height: 160px;
+  }
   .cards {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 @media screen and (min-width: 1024px) {
+  .card img {
+    height: 200px;
+  }
   header {
     padding-top: 2.2rem;
     padding-bottom: 2.2rem;
@@ -202,6 +208,9 @@ small a {
   }
 }
 @media screen and (min-width: 1440px) {
+  .card img {
+    height: 180px;
+  }
   .header__title {
     font-size: 1.6rem;
   }
