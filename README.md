@@ -28,9 +28,7 @@ Users should be able to:
 
 - Live Site: [World Info App](https://world-info-app-mocodes.netlify.app/)
 
-## My process
-
-### Built with
+## Built with
 
 - [React](https://reactjs.org/)
 - [React Router Dom](https://www.npmjs.com/package/react-router-dom/)
