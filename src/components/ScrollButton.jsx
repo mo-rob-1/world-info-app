@@ -29,7 +29,7 @@ const ScrollButton = () => {
         onClick={scrollToTop}
         style={{
           display: visible ? "inline" : "none",
-          background: "#000",
+          background: "rgb(45 87 122)",
           borderRadius: "50%",
           padding: "0.7rem",
         }}
