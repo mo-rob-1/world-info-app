@@ -22,7 +22,7 @@ Users can:
 
 ## Demo
 
-![GIF showing the World Info App](frontend/src/assets/world-info-app.gif)
+![GIF showing the World Info App](src/assets/world-info-app.gif)
 
 [App Link](https://world-info-app-mocodes.netlify.app/)
 
